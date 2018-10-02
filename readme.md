@@ -1,8 +1,9 @@
 # Trabalho de Tecnicas de Programação.
 
 ## Informações do aluno
-_Nome:_ Thiago Lopes Marques 
-_Matricula:_ 403018 
+**Nome:** Thiago Lopes Marques 
+
+**Matricula:** 403018 
 
 ## Instruções 
 Esse é um projeto criado usando NetBeans, então usando ele é possivel abrir esse projeto.
