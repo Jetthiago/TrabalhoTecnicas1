@@ -22,7 +22,6 @@ public class Gerenciador {
     }
     
     public void abrirTelaOperacoes(){
-        System.out.println(this.comum.getNome());
         TelaDeOperacoes tela = new TelaDeOperacoes(this);
         tela.setVisible(true);
     }

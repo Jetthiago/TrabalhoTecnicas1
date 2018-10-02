@@ -51,10 +51,25 @@ public class TelaDeOperacoes extends javax.swing.JFrame {
         });
 
         deposito.setText("Depósito");
+        deposito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                depositoActionPerformed(evt);
+            }
+        });
 
         transferencia.setText("Transferência");
+        transferencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transferenciaActionPerformed(evt);
+            }
+        });
 
         reajustar.setText("Reajustar");
+        reajustar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reajustarActionPerformed(evt);
+            }
+        });
 
         verSaldos.setText("Ver saldos");
         verSaldos.addActionListener(new java.awt.event.ActionListener() {
@@ -143,6 +158,21 @@ public class TelaDeOperacoes extends javax.swing.JFrame {
         this.dispose();
         new VerSaldos(this.gerenciador).setVisible(true);
     }//GEN-LAST:event_verSaldosActionPerformed
+
+    private void depositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositoActionPerformed
+        this.dispose();
+        new Deposito(this.gerenciador).setVisible(true);
+    }//GEN-LAST:event_depositoActionPerformed
+
+    private void reajustarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reajustarActionPerformed
+        this.dispose();
+        new Reajustar(this.gerenciador).setVisible(true);
+    }//GEN-LAST:event_reajustarActionPerformed
+
+    private void transferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferenciaActionPerformed
+        this.dispose();
+        new Transferencia(this.gerenciador).setVisible(true);
+    }//GEN-LAST:event_transferenciaActionPerformed
 
     /**
      * @param args the command line arguments

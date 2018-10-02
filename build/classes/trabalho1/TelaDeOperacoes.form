@@ -111,16 +111,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Dep&#xf3;sito"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="depositoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="transferencia">
           <Properties>
             <Property name="text" type="java.lang.String" value="Transfer&#xea;ncia"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="transferenciaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="reajustar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Reajustar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reajustarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="verSaldos">
           <Properties>

@@ -115,7 +115,7 @@ public class PrimeiraTela extends javax.swing.JFrame {
 
         jLabel9.setText("Saldo inicial: ");
 
-        jLabel10.setText("Taxa: ");
+        jLabel10.setText("Taxa(%): ");
 
         nomeEspecial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +157,7 @@ public class PrimeiraTela extends javax.swing.JFrame {
 
         jLabel15.setText("Limite: ");
 
-        jLabel16.setText("Multa: ");
+        jLabel16.setText("Multa(%): ");
 
         jButton1.setText("Continuar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -379,14 +379,14 @@ public class PrimeiraTela extends javax.swing.JFrame {
         poupanca.setNome(this.nomePoupanca.getText());
         poupanca.setNumero(Integer.parseInt(this.numeroPoupanca.getText()));
         poupanca.depositar(Double.parseDouble(this.saldoPoupanca.getText()));
-        poupanca.setTaxa(Double.parseDouble(this.taxaPoupanca.getText()));
+        poupanca.setTaxa(Double.parseDouble(this.taxaPoupanca.getText()) * 0.01);
         
         ContaEspecial especial = new ContaEspecial();
         especial.setNome(this.nomeEspecial.getText());
         especial.setNumero(Integer.parseInt(this.numeroEspecial.getText()));
         especial.depositar(Double.parseDouble(this.saldoEspecial.getText()));
         especial.setLimite(Integer.parseInt(this.limiteEspecial.getText()));
-        especial.setMulta(Double.parseDouble(this.multaEspecial.getText()));
+        especial.setMulta(Double.parseDouble(this.multaEspecial.getText()) * 0.01);
         
         this.dispose();
         this.gerenciador.armazenar(comum, poupanca, especial);

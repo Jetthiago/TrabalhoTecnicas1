@@ -23,19 +23,25 @@ public class Contas {
     public double getSaldo(){
         return this.saldo;
     }
-    public void depositar(double valor){
-        this.saldo += valor;
+    public void setSaldo(double saldo){
+        this.saldo = saldo;
     }
-    public void sacar(double valor){
+    public int depositar(double valor){
+        this.saldo += valor;
+        return 1;
+    }
+    public int sacar(double valor){
         if(valor <= saldo){
             this.saldo -= valor;
             System.out.println("Saque efetuado com sucesso");
+            return 1;
         } else {
             System.out.println("Saldo insuficiente");
+            return 2;
         }
     }
     public void transferir(int conta1, int conta2, int valor){
-        //
+        // wtf?
     }
     public void tipoConta(){
         System.out.println("Tipo de conta: comum");

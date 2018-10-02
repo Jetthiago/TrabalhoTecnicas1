@@ -5,20 +5,20 @@
  */
 package trabalho1;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Vanadis
  */
-public class Saque extends javax.swing.JFrame {
+public class Reajustar extends javax.swing.JFrame {
 
     /**
-     * Creates new form Saque
+     * Creates new form Reajustar
      */
     Gerenciador gerenciador;
-    public Saque(Gerenciador ger) {
+
+    public Reajustar(Gerenciador ger) {
         this.gerenciador = ger;
         initComponents();
     }
@@ -34,36 +34,23 @@ public class Saque extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        numero = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        valor = new javax.swing.JTextField();
-        continuar = new javax.swing.JButton();
+        numero = new javax.swing.JTextField();
+        taxa = new javax.swing.JTextField();
         cancelar = new javax.swing.JButton();
+        continuar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Saque");
+        jLabel1.setText("Reajuste");
 
         jLabel2.setText("Numero: ");
+
+        jLabel3.setText("Taxa(%):");
 
         numero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numeroActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Valor: ");
-
-        valor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                valorActionPerformed(evt);
-            }
-        });
-
-        continuar.setText("Continuar");
-        continuar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                continuarActionPerformed(evt);
             }
         });
 
@@ -74,6 +61,13 @@ public class Saque extends javax.swing.JFrame {
             }
         });
 
+        continuar.setText("Continuar");
+        continuar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                continuarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,9 +75,8 @@ public class Saque extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(jLabel1)
-                        .addGap(0, 189, Short.MAX_VALUE))
+                        .addGap(166, 166, 166)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,13 +84,14 @@ public class Saque extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(numero)
-                            .addComponent(valor)))
+                            .addComponent(taxa)
+                            .addComponent(numero)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 221, Short.MAX_VALUE)
                         .addComponent(cancelar)
-                        .addGap(18, 18, 18)
-                        .addComponent(continuar)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(continuar)
+                        .addGap(5, 5, 5)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -112,12 +106,12 @@ public class Saque extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(taxa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(continuar)
-                    .addComponent(cancelar))
-                .addContainerGap(32, Short.MAX_VALUE))
+                    .addComponent(cancelar)
+                    .addComponent(continuar))
+                .addContainerGap())
         );
 
         pack();
@@ -127,10 +121,6 @@ public class Saque extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_numeroActionPerformed
 
-    private void valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_valorActionPerformed
-
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         this.dispose();
         this.gerenciador.abrirTelaOperacoes();
@@ -138,52 +128,24 @@ public class Saque extends javax.swing.JFrame {
 
     private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
         int numero = Integer.parseInt(this.numero.getText());
-        String nome = "";
-        int conta = 0;
-        int sucesso = 0;
-        if(numero == this.gerenciador.comum.getNumero()){
-            nome = this.gerenciador.comum.getNome();
-            conta = 1;
-        } else if(numero == this.gerenciador.poupanca.getNumero()){
-            nome = this.gerenciador.poupanca.getNome();
-            conta = 2;
-        } else if(numero == this.gerenciador.especial.getNumero()){
-            nome = this.gerenciador.especial.getNome();
-            conta = 3;
-        }
-        JFrame confirmar = new JFrame();
-        int resposta = JOptionPane.showConfirmDialog(confirmar, "Confirmar operação? Nome: "+nome, "", JOptionPane.YES_NO_OPTION);
-        if (resposta == JOptionPane.YES_OPTION) {
-            switch(conta){
-                case 1:
-                    sucesso = this.gerenciador.comum.sacar(Double.parseDouble(this.valor.getText()));
-                    this.gerenciador.armazenar(this.gerenciador.comum);
-                    break;
-                case 2:
-                    sucesso = this.gerenciador.poupanca.sacar(Double.parseDouble(this.valor.getText()));
-                    this.gerenciador.armazenar(this.gerenciador.poupanca);
-                    break;
-                case 3:
-                    sucesso = this.gerenciador.especial.sacar(Double.parseDouble(this.valor.getText()));
-                    this.gerenciador.armazenar(this.gerenciador.especial);
-                    break;
-            }
-            if(sucesso == 1){
-                JOptionPane.showMessageDialog(null, "Saque efetuado com sucesso");
-                this.gerenciador.abrirTelaOperacoes();
-            } else if(sucesso == 2){
-                JOptionPane.showMessageDialog(null, "Operação nãp realizada, saldo insuficiente");
-                this.gerenciador.abrirTelaOperacoes();
-            } else if(sucesso == 3){
-                JOptionPane.showMessageDialog(null, "Saque efetuado usando cheque especial");
-                this.gerenciador.abrirTelaOperacoes();
-            }
+        String taxaStr = this.taxa.getText();
+        System.out.println(taxaStr);
+        if (numero != this.gerenciador.poupanca.getNumero()) {
+            JOptionPane.showMessageDialog(null, "Valido somente para conta poupança");
         } else {
-           JOptionPane.showMessageDialog(null, "Saque cancelado");
-           this.gerenciador.abrirTelaOperacoes();
+            if (taxaStr.isEmpty()) {
+                this.gerenciador.poupanca.reajustar();
+            } else {
+                double taxa = Double.parseDouble(taxaStr) * 0.01;
+                this.gerenciador.poupanca.reajustar(taxa);
+            }
+            this.gerenciador.armazenar(this.gerenciador.poupanca);
+            JOptionPane.showMessageDialog(null, "Reajuste efetuado com sucesso");
+
+            this.gerenciador.abrirTelaOperacoes();
+            this.dispose();
         }
-        confirmar.dispose();
-        this.dispose();
+
     }//GEN-LAST:event_continuarActionPerformed
 
     /**
@@ -203,20 +165,20 @@ public class Saque extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Saque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reajustar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Saque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reajustar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Saque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reajustar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Saque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reajustar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Saque(new Gerenciador()).setVisible(true);
+                new Reajustar(new Gerenciador()).setVisible(true);
             }
         });
     }
@@ -228,6 +190,6 @@ public class Saque extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField numero;
-    private javax.swing.JTextField valor;
+    private javax.swing.JTextField taxa;
     // End of variables declaration//GEN-END:variables
 }
